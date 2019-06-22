@@ -1,0 +1,5 @@
+﻿  main.cpp
+  slist.cpp
+  正在生成代码...
+f:\bite learn\the data structure\the data structure\slist.cpp(52): warning C4715: “SListFind”: 不是所有的控件路径都返回值
+  The data structure.vcxproj -> F:\bite learn\The data structure\Debug\The data structure.exe
