@@ -53,6 +53,7 @@ SListNode* SListFind(SList* plist, SLTDataType x)
 			return cur;
 		}
 	}
+	return 0;
 }
 void SListInsertAfter(SListNode* pos, SLTDataType x)
 {
@@ -97,7 +98,10 @@ int SListPopFrontJudge(SList* plist, SLTDataType x)
 		}
 	}
 	else
+	{
 		return 0;
+	}
+	return 0;
 	
 }
 void SListRemove(SList* plist, SLTDataType x)
@@ -124,4 +128,16 @@ void SListRemove(SList* plist, SLTDataType x)
 		free(tmp);
 	}
 	
+}
+void SListreverse(SList* plist)
+{
+	static SList reve;
+	SListInit(&reve);
+	SListNode* cur;
+	for (cur = plist->_head; cur; cur = cur->_next)
+	{
+		SListPushFront(&reve,  cur->_data);
+		 
+	}
+	SListPrint(&reve);
 }

@@ -45,12 +45,10 @@ void listtest()
 	SListInsertAfter(cur, 20);
 	SListEraseAfter(cur);
 	SListPrint(&test);
-	SListRemove(&test, 6);
-	//SListRemove(&test, 6);//6->0->10->NULL
+	SListRemove(&test, 3);
+
 	SListPrint(&test);
-	//6->5->4->3->2->1->0->10->NULL
-	//6->   4->3->2->1->0->10->NULLɾ5
-	//6->5->4->   2->1->0->10->NULLɾ3
+	SListreverse(&test);
 }
 int main()
 {
