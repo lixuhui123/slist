@@ -22,7 +22,8 @@ SListNode* SListFind(SList* plist, SLTDataType x);
 void SListInsertAfter(SListNode* pos, SLTDataType x);
 // 在pos的前面进行插入
 void SListEraseAfter(SListNode* pos);
-//void SListRemove(SList* plist, SLTDataType x);
+void SListRemove(SList* plist, SLTDataType x);
+int SListPopFrontJudge(SList* plist, SLTDataType x);
 void SListPrint(SList* plist);
 //void TestSList();
 #endif _SLIST_H

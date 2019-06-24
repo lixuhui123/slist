@@ -82,3 +82,46 @@ void SListPrint(SList* plist)
 	}
 	printf("NULL\n");
 }
+int SListPopFrontJudge(SList* plist, SLTDataType x)
+{
+	if (plist->_head->_data == x)
+	{
+		SListNode *tmp;
+		if (plist->_head)
+		{
+
+			tmp = plist->_head;
+			plist->_head = plist->_head->_next;
+			free(tmp);//释放掉第一个cur
+			return 1;
+		}
+	}
+	else
+		return 0;
+	
+}
+void SListRemove(SList* plist, SLTDataType x)
+{
+	//删除x
+	int receive = 0;
+	receive=SListPopFrontJudge(plist, x);
+	if (!receive)
+	{
+		SListNode* tmp = NULL;
+		SListNode* before = plist->_head;
+		SListNode* cur;
+		cur = plist->_head->_next;
+		for (; cur; cur = cur->_next, before = before->_next)
+			//链表遍历
+		{
+			if (cur->_data == x)
+			{
+				break;
+			}
+		}
+		tmp = cur;
+		before->_next = tmp->_next;
+		free(tmp);
+	}
+	
+}
