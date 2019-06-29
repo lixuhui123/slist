@@ -19,8 +19,8 @@ for(cur=head;cur;cur=cur->next)
 cur;
 }
 for(cur=head->next;cur!=head;cur=cur->next)
-
 {
+//双向链表把next改成per就倒着遍历
 cur;
 }
 for(cur=head;cur;cur=cur->next)
@@ -45,10 +45,11 @@ void listtest()
 	SListInsertAfter(cur, 20);
 	SListEraseAfter(cur);
 	SListPrint(&test);
-	SListRemove(&test, 3);
+	SListRemove(&test, 4);
 
 	SListPrint(&test);
 	SListreverse(&test);
+	//SListPrint(&test);
 }
 int main()
 {

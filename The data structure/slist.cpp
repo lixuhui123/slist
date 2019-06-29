@@ -129,6 +129,8 @@ void SListRemove(SList* plist, SLTDataType x)
 	}
 	
 }
+#if 1
+
 void SListreverse(SList* plist)
 {
 	static SList reve;
@@ -136,8 +138,77 @@ void SListreverse(SList* plist)
 	SListNode* cur;
 	for (cur = plist->_head; cur; cur = cur->_next)
 	{
-		SListPushFront(&reve,  cur->_data);
-		 
+		SListPushFront(&reve, cur->_data);
+
 	}
 	SListPrint(&reve);
+}
+#endif
+#if 0
+void SListreverse(SList* plist)
+{
+
+	SListNode * tmp = plist->_head->_next;
+	SListNode* cur = plist->_head;
+	while (tmp)
+	{
+		cur->_next = tmp->_next;
+		tmp->_next = plist->_head;
+		plist->_head = tmp;
+		tmp = cur->_next;
+
+	}
+	//深度理解空循环的用法，不要局限于它的固定的形式
+}
+#endif
+//判断链表是否有环，两个指针一个一次遍历一个，另一个跳着遍历
+//SListNode * get(SList *ListA, SList *ListB)
+//{
+//	int lenA = 0;
+//	int lenB = 0;
+//	for(cur=ListA;)
+//}
+int SListhascycle(SList * plist)
+{
+	SListNode* fast = plist->_head;
+	SListNode* slow = plist->_head;
+	while (slow&&fast&&fast->_next)
+	{
+		fast = fast->_next->_next;
+		slow = slow->_next;
+		if (slow == fast)
+		{
+			return 1;
+		}
+
+	}
+}
+SListNode* SListhascycle1(SList * plist)
+{
+//判断是不是带环链表
+	SListNode* fast = plist->_head;
+	SListNode* slow = plist->_head;
+	while (slow&&fast&&fast->_next)
+	{
+		fast = fast->_next->_next;
+		slow = slow->_next;
+		if (slow == fast)
+		{
+			return slow;
+		}
+
+	}
+	return NULL;
+}
+SListNode* find(SList* plist)
+{
+	SListNode* tmp=SListhascycle1(plist);
+	SListNode *cur = plist->_head;
+	for (; cur; cur = cur->_next, tmp = tmp->_next)
+	{
+		if (cur == tmp)
+		{
+			return cur;
+		}
+	}
 }
