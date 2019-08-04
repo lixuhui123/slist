@@ -27,5 +27,7 @@ void SListRemove(SList* plist, SLTDataType x);
 int SListPopFrontJudge(SList* plist, SLTDataType x);
 void SListPrint(SList* plist);
 void SListreverse(SList* plist);
-//void TestSList();
+SListNode* SListHasCycle1(SList * plist);
+SListNode* Find(SList* plist);
+void SListMakeCycle(SList* plist);
 #endif _SLIST_H

@@ -32,24 +32,41 @@ cur;
 void listtest()
 {
 	SList test;
+
 	SListInit(&test);
+
 	SListPushFront(&test, 10);
 	SListPushFront(&test, 0);
 	SListPushFront(&test, 1);
 	SListPushFront(&test, 2);
-	SListPushFront(&test, 3);
+	SListPushFront(&test, 33);
 	SListPushFront(&test, 4);
 	SListPushFront(&test, 5);
 	SListPushFront(&test, 6);
+
 	SListNode* cur = SListFind(&test, 2);
 	SListInsertAfter(cur, 20);
 	SListEraseAfter(cur);
 	SListPrint(&test);
-	SListRemove(&test, 4);
 
+	SListRemove(&test, 4);
 	SListPrint(&test);
+
 	SListreverse(&test);
-	//SListPrint(&test);
+	SListPrint(&test);
+
+	//SListPushFront(&test, 10);
+	//SListPushFront(&test, 0);
+	//SListPushFront(&test, 1);
+	//SListPushFront(&test, 2);
+	//SListPushFront(&test, 3);
+	//SListPushFront(&test, 4);
+	// 
+	//SListMakeCycle(&test);
+	//SListNode* target = NULL;
+	//target = Find(&test);
+	//printf("%d\n", target->_data);
+
 }
 int main()
 {

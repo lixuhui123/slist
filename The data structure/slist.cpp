@@ -129,7 +129,7 @@ void SListRemove(SList* plist, SLTDataType x)
 	}
 	
 }
-#if 1
+#if 0
 
 void SListreverse(SList* plist)
 {
@@ -144,11 +144,11 @@ void SListreverse(SList* plist)
 	SListPrint(&reve);
 }
 #endif
-#if 0
+#if 1
 void SListreverse(SList* plist)
 {
 
-	SListNode * tmp = plist->_head->_next;
+	SListNode* tmp = plist->_head->_next;
 	SListNode* cur = plist->_head;
 	while (tmp)
 	{
@@ -168,11 +168,11 @@ void SListreverse(SList* plist)
 //	int lenB = 0;
 //	for(cur=ListA;)
 //}
-int SListhascycle(SList * plist)
+int SListHasCycle(SList * plist)
 {
 	SListNode* fast = plist->_head;
 	SListNode* slow = plist->_head;
-	while (slow&&fast&&fast->_next)
+	while (slow && fast && fast->_next)
 	{
 		fast = fast->_next->_next;
 		slow = slow->_next;
@@ -182,13 +182,14 @@ int SListhascycle(SList * plist)
 		}
 
 	}
+	return 0;
 }
-SListNode* SListhascycle1(SList * plist)
+SListNode* SListHasCycle1(SList * plist)
 {
 //判断是不是带环链表
 	SListNode* fast = plist->_head;
 	SListNode* slow = plist->_head;
-	while (slow&&fast&&fast->_next)
+	while (slow && fast && fast->_next)
 	{
 		fast = fast->_next->_next;
 		slow = slow->_next;
@@ -196,13 +197,13 @@ SListNode* SListhascycle1(SList * plist)
 		{
 			return slow;
 		}
-
 	}
 	return NULL;
 }
-SListNode* find(SList* plist)
+SListNode* Find(SList* plist)
 {
-	SListNode* tmp=SListhascycle1(plist);
+	//寻找链表的入环点
+	SListNode* tmp= SListHasCycle1(plist);
 	SListNode *cur = plist->_head;
 	for (; cur; cur = cur->_next, tmp = tmp->_next)
 	{
@@ -211,4 +212,9 @@ SListNode* find(SList* plist)
 			return cur;
 		}
 	}
+	return NULL;
+}
+void SListMakeCycle(SList* plist)
+{
+	plist->_head->_next->_next->_next->_next->_next = plist->_head->_next->_next->_next;
 }
