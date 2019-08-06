@@ -12,7 +12,7 @@ typedef struct SList
 {
 	SListNode* _head;
 }SList;//链表，用它来初始化 SList test;plist=&test;用来记录头结点；
- 
+ //结构体的定义和初始化
 void SListInit(SList* plist);
 void SListDestory(SList* plist);
 //SListNode* BuySListNode(SLTDataType x);
