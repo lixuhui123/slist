@@ -66,7 +66,7 @@ void listtest()
 	//SListNode* target = NULL;
 	//target = Find(&test);
 	//printf("%d\n", target->_data);
-
+	printf("%d ", sizeof(SListNode));
 }
 int main()
 {
