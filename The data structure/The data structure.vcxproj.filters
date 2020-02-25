@@ -32,5 +32,11 @@
     <ClCompile Include="slist.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="自己构造的链表.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="源.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
